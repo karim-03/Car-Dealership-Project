@@ -1,5 +1,6 @@
 body {
     background-color: #2e2e2e;
+    background-image: url("/static/img/repeating-tile-4.jpg");
     color:white;
     text-shadow:
     -1px -1px 0 #000,
