@@ -13,17 +13,20 @@ li {
     background-color: #0101015f; 
     margin-bottom: 10px;
     padding: 10px;
+    border-radius:10px;
 }
 
 .req-action{
     float:right;
-    padding: 2px 2px;
+    padding: 3px 3px;
     margin-right:8px;
     background-color: #6f00ff;
     color: white;
     text-decoration: none;
     border: none;          
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
 }
 .req-action:hover {
     background-color: #5a00e6;
