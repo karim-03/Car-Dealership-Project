@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <script src="{% static 'js/base.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {%block head%}
+    {%endblock head%}
+</head>
+<body>
+    <div id="nav-bar">
+        <a class="nav-item" href="{% url 'homepage' %}">Home</a> |
+        <a class="nav-item" href="{% url 'cars_list' %}">Cars</a>
+        {% if user.is_authenticated and user.role == 'Admin' %}
+            | <a class="nav-item" href="{% url 'requests_list' %}"> Requests</a>
+        {% endif %}
+    </div>
+
+    <div id="signed-as">
+        Signed in as
+        {% if user.is_authenticated %}
+            {{user.username }}
+        {% if user.is_authenticated and user.role == 'Admin' %}
+            (Admin)
+        {% endif %} 
+            <form id="logout-form" method="post" action="{% url 'logout' %}">
+                {% csrf_token %} |
+                <button id="logout-btn" type="submit">
+                    Log out
+                </button>
+            </form>
+        {% else %}
+            guest |
+            <a id="login-btn" href="{% url 'login' %}">Log in</a>
+        {% endif %}
+    </div>
+
+    {%block body%}
+    {%endblock body%}
+</body>
+</html>

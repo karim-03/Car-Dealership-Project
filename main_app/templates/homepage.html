@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
+{%endblock%}
+
+{%block body%}
+  <br><br><br><br>
+  <div class="welcome">
+    <h1>Welcome to the homepage</h1>
+
+    <p>
+      <a class="signup-login" href="{% url 'signup' %}">Sign up</a>
+      <a class="signup-login" href="{% url 'login' %}">Log in</a>
+    </p>
+  </div>
+{%endblock body%}

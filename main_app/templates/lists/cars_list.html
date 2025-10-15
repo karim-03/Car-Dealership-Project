@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block head%}
+  <script src="{% static 'js/cars_list.js' %}" defer></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/lists/cars_list.css' %}">
+{%endblock head%}
+
+{%block body%}
+  <h1>Cars</h1>
+
+  {% if not all_cars %}
+    <h3>No cars available right now.</h3>
+  {% endif %}
+
+  <ol>
+    {% for car in all_cars %}
+        <li class="car-item" id="car-{{ car.id }}">
+            {{ car.brand }} - {{car.model}} - {{car.seller}} - {{car.year}} - {{ car.price }}
+            {% if user.is_authenticated %}
+                <button class="book-btn" data-car-id="{{ car.id }}">Request purchase!</button>
+            {% else %}
+                <a id="login-book" href="{% url 'login' %}">Log in to book!</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+  </ol>
+      
+  <a id="add-btn" href="{% url 'add_car' %}">Add your car to the listing!</a>
+
+  {% if messages %}
+    {% for message in messages %}
+      <p class="{{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+
+{%endblock body%}

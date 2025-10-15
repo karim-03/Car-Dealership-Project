@@ -1,0 +1,55 @@
+body {
+    background-color: #2e2e2e;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+     text-align:center;
+}
+
+#nav-bar {
+    text-align:left;
+    background-color: #0101015f; 
+    padding: 10px; 
+    border-radius:10px;
+}
+
+.nav-item {
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px;
+    font-size: 20px;
+}
+.nav-item:hover {
+    text-decoration: underline; 
+}
+
+#signed-as {
+    margin-top:8px; 
+    font-size:0.95rem; 
+    color:#ffffffc5;
+    margin-left:5px;
+    text-align:left;
+}
+
+#logout-form {
+    display:inline; 
+}
+
+#logout-btn, #login-btn {
+    background:none;
+    border:none;
+    padding:0;
+    color:rgb(0, 204, 255);
+    cursor:pointer;
+    text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+#logout-btn, #login-btn:hover {
+    text-decoration:underline;
+}

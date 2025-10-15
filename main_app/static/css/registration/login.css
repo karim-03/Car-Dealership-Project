@@ -1,0 +1,21 @@
+#login-sbmt{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6f00ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#login-sbmt:hover {
+    background-color: #5a00e6;
+}
+
+.login {
+    background-color: #0101015f; 
+    padding: 10px 20px;
+    width:450px;
+    margin: 75px auto;
+    align-self: center;
+    border-radius: 10px;
+}

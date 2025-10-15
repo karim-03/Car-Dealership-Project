@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block head%}
+  <script src="{% static 'js/requests.js' %}" defer></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/lists/requests.css' %}">
+{%endblock head%}
+
+{%block body%}
+  <h1>Requests</h1>
+
+  {% if not all_requests %}
+    <h3>The log is empty.</h3>
+  {% endif %}
+
+  <ol>
+    {% for request in all_requests %}
+      <li id="req-{{ request.id }}" class="req-item">
+        {{ request.user_id }} - {{ request.car_id.brand }} {{ request.car_id.model }} ({{ request.car_id.year }}) - <span class="req-status">{{request.status}}</span>
+        {% if user.is_authenticated and user.role == 'Admin' and request.status == 'pending' %}
+          <button class="req-action" data-req-id="{{ request.id }}" data-action="accept">Accept</button>
+          <button class="req-action" data-req-id="{{ request.id }}" data-action="deny">Deny</button>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+
+  {% if user.is_authenticated and user.role == "Admin" %}
+    <form method="post" action="{% url 'clear_requests' %}" style="margin-top:1rem;">
+      {% csrf_token %}
+      <button id="clear-log" type="submit">Clear requests log</button>
+    </form>
+  {% endif %}
+
+  {% if messages %}
+    {% for message in messages %}
+      <p class="{{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+
+{%endblock body%}

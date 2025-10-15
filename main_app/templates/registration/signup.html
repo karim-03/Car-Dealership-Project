@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%load static%}
+
+{%block head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration/signup.css' %}">
+{%endblock head%}
+
+{% block body %}
+    <div class="signup">
+        <h1>Sign up</h1>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {% for field in form %}
+                {{field.label_tag}}<br>
+                {{field}}<br><br>
+                {% for error in field.errors %}
+                    <div class='field-error'>{{error}}</div>
+                {% endfor %}
+            {% endfor %}
+            <button id="signup-btn" type="submit">Create account</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+ol, ul {
+    width: 450px;
+    margin: 0 auto;
+    align-self: center;
+    padding: 0;
+}
+
+li {
+    text-align:left;
+}
+
+.car-item {
+    background-color: #0101015f; 
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.book-btn{
+    float:right;
+    padding: 2px 2px;
+    background-color: #6f00ff;
+    color: white;
+    text-decoration: none;
+    border: none;          
+    cursor: pointer;
+}
+.book-btn:hover {
+    background-color: #5a00e6;
+}
+
+#login-book{
+    background:none;
+    border:none;
+    padding:0;
+    color:rgb(0, 204, 255);
+    cursor:pointer;
+    text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+#login-book:hover {
+    text-decoration:underline;
+}
+
+#add-btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6f00ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#add-btn:hover {
+    background-color: #5a00e6;
+}
