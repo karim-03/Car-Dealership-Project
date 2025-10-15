@@ -11,7 +11,12 @@ document.addEventListener('DOMContentLoaded', function(){
             const li = this.closest('li');
             if (li){
                 const b = li.querySelector('.book-btn');
-                if (b) b.replaceWith(document.createTextNode('- Request sent!'));
+                if (b)  {
+                    const span = document.createElement('span');
+                    span.textContent = 'Request sent!';
+                    span.style.cssText = 'float:right; padding: 2px 2px;';
+                    b.replaceWith(span);
+                }
             }
             fetch(`/cars/${carId}/book/`, {
                 method: 'POST',

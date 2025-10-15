@@ -29,6 +29,8 @@ li {
 }
 
 #login-book{
+    float:right;
+    padding: 2px 2px;
     background:none;
     border:none;
     padding:0;
